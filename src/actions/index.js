@@ -8,9 +8,10 @@ export const addListItem = item => ({
 	item
 });
 
-export const updateListItem = itemId => ({
+export const updateListItem = (item, id) => ({
 	type: UPDATE_LIST_ITEM,
-	itemId
+	item: item,
+	id: id
 });
 
 export const removeListItem = itemId => ({

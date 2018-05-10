@@ -16,12 +16,17 @@ class List extends Component {
   }
 
   createListItemElements(listItems) {
-    const { removeListItem } = this.props;
+    const { removeListItem, updateListItem } = this.props;
 
     return Object.values(listItems)
       .map(item => {
         return (
-          <ListItem item={item} removeListItem={removeListItem} key={item.id} />
+          <ListItem
+            item={item}
+            updateListItem={updateListItem}
+            removeListItem={removeListItem}
+            key={item.id}
+          />
         );
       })
       .reverse();
@@ -39,6 +44,7 @@ class List extends Component {
             removeAllListItems={removeAllListItems}
           />
         </h3>
+
         <Card.Group itemsPerRow={3}>
           {listItemElements.length > 0 ? listItemElements : <EmptyList />}
         </Card.Group>

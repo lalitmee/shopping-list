@@ -24,7 +24,7 @@ class ListHeader extends Component {
         <Form onSubmit={this.handleSubmit} className="form-inline">
           {this.props.totalNumberOfListItems}{" "}
           {totalNumberOfListItems === 1 ? "item" : "items"}{" "}
-          <Button className="btn btn-xs btn-default" type="submit">
+          <Button inverted color="red" type="submit">
             Remove all
           </Button>
         </Form>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import List from "./List";
 import {
 	Container,
@@ -8,7 +9,8 @@ import {
 	Image,
 	Modal,
 	Grid,
-	Divider
+	Divider,
+	Segment
 } from "semantic-ui-react";
 
 import AddItem from "./forms/AddItem";
@@ -17,11 +19,12 @@ import AddItem from "./forms/AddItem";
 const ShoppingList = ({
 	listItems,
 	addListItem,
+	updateListItem,
 	removeListItem,
 	removeAllListItems
 }) => (
 	<Container className="App">
-		<Header as="h1" textAlign="center">
+		<Header as="h1" textAlign="center" style={{ marginTop: "2%" }}>
 			Shopping List
 		</Header>
 		<Divider />
@@ -33,6 +36,7 @@ const ShoppingList = ({
 				<Grid.Column width={12}>
 					<List
 						listItems={listItems}
+						updateListItem={updateListItem}
 						removeListItem={removeListItem}
 						removeAllListItems={removeAllListItems}
 					/>
@@ -42,4 +46,4 @@ const ShoppingList = ({
 	</Container>
 );
 
-export default ShoppingList;
+export default withRouter(ShoppingList);

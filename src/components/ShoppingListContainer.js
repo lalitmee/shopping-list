@@ -15,7 +15,8 @@ const mapStateToProps = ({ listItems }) => ({
 
 const mapDispatchToProps = dispatch => ({
   addListItem: listItem => dispatch(addListItem(listItem)),
-  updateListItem: listItemId => dispatch(updateListItem(listItemId)),
+  updateListItem: (listItem, itemId) =>
+    dispatch(updateListItem(listItem, itemId)),
   removeListItem: listItemId => dispatch(removeListItem(listItemId)),
   removeAllListItems: () => dispatch(removeAllListItems())
 });
