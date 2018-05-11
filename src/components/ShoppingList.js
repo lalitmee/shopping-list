@@ -48,7 +48,6 @@ const ShoppingList = ({
 );
 
 function mapStateToProps(state) {
-	console.log(state);
 	return state;
 }
 
