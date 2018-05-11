@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Container, Header, Segment } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import { GithubLoginButton } from "react-social-login-buttons";
+import { addUser } from "../actions";
 
 export class MainPage extends Component {
 	constructor(props) {
@@ -34,7 +36,11 @@ export class MainPage extends Component {
 				this.setState({
 					user: data.name
 				});
-				this.props.history.push("/list", { username: data.name });
+				// this.props.addUser(data.name, data.id);
+				this.props.history.push("/list", {
+					username: data.name,
+					userId: data.id
+				});
 			});
 
 			// // You can also call Github's API using .get()
@@ -61,4 +67,4 @@ export class MainPage extends Component {
 	}
 }
 
-export default withRouter(MainPage);
+export default withRouter(connect(null, { addUser })(MainPage));

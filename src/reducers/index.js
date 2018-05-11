@@ -1,4 +1,5 @@
 import {
+  ADD_USER,
   ADD_LIST_ITEM,
   UPDATE_LIST_ITEM,
   REMOVE_LIST_ITEM,
@@ -6,8 +7,11 @@ import {
 } from "../actions";
 
 const initialState = {
-  listItems: {}
+  listItems: {},
+  users: []
 };
+
+const addUser = (listItems, user, userId) => {};
 
 const removeItemFromList = (listItems, itemId) => {
   const listItemsCopy = { ...listItems };
@@ -37,6 +41,11 @@ const listItems = (state = initialState, action) => {
           [action.item.id]: action.item
         }
       };
+
+    // case ADD_USER:
+    //   return {
+    //     user: addUser(state.listItems, action.user, action.userId)
+    //   };
 
     case REMOVE_LIST_ITEM:
       return {

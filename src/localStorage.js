@@ -1,13 +1,13 @@
-console.log(localStorage);
 export const loadState = () => {
 	try {
-		const serializeState = localStorage.getItem("state");
-		if (serializeState === null) {
-			return undefined;
+		const serializedState = localStorage.getItem("state");
+		const state = JSON.parse(serializedState);
+		if (!state.listItems) {
+			return { listItems: {} };
 		}
-		return JSON.parse(serializeState);
+		return JSON.parse(serializedState);
 	} catch (err) {
-		return undefined;
+		return { listItems: {} };
 	}
 };
 

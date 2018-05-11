@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 import List from "./List";
 import {
 	Container,
@@ -46,4 +47,9 @@ const ShoppingList = ({
 	</Container>
 );
 
-export default withRouter(ShoppingList);
+function mapStateToProps(state) {
+	console.log(state);
+	return state;
+}
+
+export default withRouter(connect(mapStateToProps)(ShoppingList));

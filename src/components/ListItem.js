@@ -48,11 +48,8 @@ class ListItem extends Component {
             <Header as="h3">{item.quantity}</Header>
           </div>
           <Card.Header>{item.name}</Card.Header>
-          {item.description.length > 0 ? (
-            <Card.Description>{item.description}</Card.Description>
-          ) : (
-            ""
-          )}
+
+          <Card.Description>{item.description}</Card.Description>
         </Card.Content>
         <Card.Content extra>
           <div className="ui two buttons">

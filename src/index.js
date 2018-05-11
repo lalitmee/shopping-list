@@ -20,7 +20,6 @@ const store = createStore(
 	compose(window.devToolsExtension ? window.devToolsExtension() : f => f)
 );
 
-console.log(store.getState());
 store.subscribe(
 	throttle(() => {
 		saveState({ listItems: store.getState().listItems });
@@ -28,10 +27,10 @@ store.subscribe(
 );
 
 render(
-	<Provider store={store}>
-		<BrowserRouter>
+	<BrowserRouter>
+		<Provider store={store}>
 			<App />
-		</BrowserRouter>
-	</Provider>,
+		</Provider>
+	</BrowserRouter>,
 	document.getElementById("root")
 );
